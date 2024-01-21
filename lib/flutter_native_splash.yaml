@@ -1,0 +1,8 @@
+# flutter_native_splash:
+#   android:
+#     splash_screen_image: assets/splash_screen.png
+#     branding:
+#       text: "E-Active Workplace"
+#       textColor: "#FFFFFF"
+#       textSize: 30
+#       position: bottom

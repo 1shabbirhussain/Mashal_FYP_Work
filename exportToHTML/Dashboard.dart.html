@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>Dashboard.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #6aab73;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Dashboard.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'Leave.dart'</span><span class="s2">; </span><span class="s3">// Import your Leave.dart file</span>
+
+<span class="s4">class </span><span class="s0">Dashboard </span><span class="s4">extends </span><span class="s0">StatefulWidget </span><span class="s2">{</span>
+  <span class="s0">@override</span>
+  <span class="s0">_DashboardState createState</span><span class="s2">() =&gt; </span><span class="s0">_DashboardState</span><span class="s2">();</span>
+<span class="s2">}</span>
+
+<span class="s4">class </span><span class="s0">_DashboardState </span><span class="s4">extends </span><span class="s0">State</span><span class="s2">&lt;</span><span class="s0">Dashboard</span><span class="s2">&gt; {</span>
+  <span class="s0">@override</span>
+  <span class="s0">Widget build</span><span class="s2">(</span><span class="s0">BuildContext context</span><span class="s2">) {</span>
+    <span class="s4">return </span><span class="s0">Scaffold</span><span class="s2">(</span>
+      <span class="s0">appBar</span><span class="s2">: </span><span class="s0">AppBar</span><span class="s2">(</span>
+        <span class="s0">title</span><span class="s2">: </span><span class="s0">Text</span><span class="s2">(</span><span class="s1">&quot;Dashboard&quot;</span><span class="s2">),</span>
+        <span class="s0">elevation</span><span class="s2">: </span><span class="s5">.1</span><span class="s2">,</span>
+        <span class="s0">backgroundColor</span><span class="s2">: </span><span class="s0">Color</span><span class="s2">.</span><span class="s0">fromRGBO</span><span class="s2">(</span><span class="s5">78</span><span class="s2">, </span><span class="s5">169</span><span class="s2">, </span><span class="s5">132</span><span class="s2">, </span><span class="s5">1.0</span><span class="s2">),</span>
+      <span class="s2">),</span>
+      <span class="s0">body</span><span class="s2">: </span><span class="s0">Padding</span><span class="s2">(</span>
+        <span class="s0">padding</span><span class="s2">: </span><span class="s4">const </span><span class="s0">EdgeInsets</span><span class="s2">.</span><span class="s0">all</span><span class="s2">(</span><span class="s5">8.0</span><span class="s2">),</span>
+        <span class="s0">child</span><span class="s2">: </span><span class="s0">Container</span><span class="s2">(</span>
+          <span class="s0">padding</span><span class="s2">: </span><span class="s0">EdgeInsets</span><span class="s2">.</span><span class="s0">symmetric</span><span class="s2">(</span><span class="s0">vertical</span><span class="s2">: </span><span class="s5">20.0</span><span class="s2">, </span><span class="s0">horizontal</span><span class="s2">: </span><span class="s5">2.0</span><span class="s2">),</span>
+          <span class="s0">child</span><span class="s2">: </span><span class="s0">Column</span><span class="s2">(</span>
+            <span class="s0">crossAxisAlignment</span><span class="s2">: </span><span class="s0">CrossAxisAlignment</span><span class="s2">.</span><span class="s0">start</span><span class="s2">, </span><span class="s3">// Align items to the left</span>
+            <span class="s0">children</span><span class="s2">: &lt;</span><span class="s0">Widget</span><span class="s2">&gt;[</span>
+              <span class="s0">Padding</span><span class="s2">(</span>
+                <span class="s0">padding</span><span class="s2">: </span><span class="s4">const </span><span class="s0">EdgeInsets</span><span class="s2">.</span><span class="s0">only</span><span class="s2">(</span><span class="s0">top</span><span class="s2">: </span><span class="s5">20.0</span><span class="s2">), </span><span class="s3">// Add top padding</span>
+                <span class="s0">child</span><span class="s2">: </span><span class="s0">makeDashboardItem</span><span class="s2">(</span><span class="s1">&quot;Leave&quot;</span><span class="s2">, </span><span class="s0">Icons</span><span class="s2">.</span><span class="s0">access_time_filled</span><span class="s2">, () {</span>
+                  <span class="s3">// Navigate to the Leave screen when the &quot;Leave&quot; card is tapped</span>
+                  <span class="s0">Navigator</span><span class="s2">.</span><span class="s0">push</span><span class="s2">(</span>
+                    <span class="s0">context</span><span class="s2">,</span>
+                    <span class="s0">MaterialPageRoute</span><span class="s2">(</span><span class="s0">builder</span><span class="s2">: (</span><span class="s0">context</span><span class="s2">) =&gt; </span><span class="s0">LeaveListingPage</span><span class="s2">()),</span>
+                  <span class="s2">);</span>
+                <span class="s2">}),</span>
+              <span class="s2">),</span>
+              <span class="s0">SizedBox</span><span class="s2">(</span><span class="s0">height</span><span class="s2">: </span><span class="s5">20.0</span><span class="s2">), </span><span class="s3">// Increase spacing between items</span>
+              <span class="s0">makeDashboardItem</span><span class="s2">(</span><span class="s1">&quot;Performance&quot;</span><span class="s2">, </span><span class="s0">Icons</span><span class="s2">.</span><span class="s0">assessment</span><span class="s2">, () {</span>
+                <span class="s3">// Navigate to the Performance screen when the &quot;Performance&quot; card is tapped</span>
+              <span class="s2">}),</span>
+              <span class="s0">SizedBox</span><span class="s2">(</span><span class="s0">height</span><span class="s2">: </span><span class="s5">20.0</span><span class="s2">), </span><span class="s3">// Increase spacing between items</span>
+              <span class="s0">makeDashboardItem</span><span class="s2">(</span><span class="s1">&quot;My Team&quot;</span><span class="s2">, </span><span class="s0">Icons</span><span class="s2">.</span><span class="s0">group</span><span class="s2">, () {</span>
+                <span class="s3">// Navigate to the My Team screen when the &quot;My Team&quot; card is tapped</span>
+              <span class="s2">}),</span>
+              <span class="s0">SizedBox</span><span class="s2">(</span><span class="s0">height</span><span class="s2">: </span><span class="s5">20.0</span><span class="s2">), </span><span class="s3">// Increase spacing between items</span>
+              <span class="s0">makeDashboardItem</span><span class="s2">(</span><span class="s1">&quot;Feedback&quot;</span><span class="s2">, </span><span class="s0">Icons</span><span class="s2">.</span><span class="s0">feedback</span><span class="s2">, () {</span>
+                <span class="s3">// Navigate to the Feedback screen when the &quot;Feedback&quot; card is tapped</span>
+                <span class="s0">Navigator</span><span class="s2">.</span><span class="s0">push</span><span class="s2">(</span>
+                  <span class="s0">context</span><span class="s2">,</span>
+                  <span class="s0">MaterialPageRoute</span><span class="s2">(</span><span class="s0">builder</span><span class="s2">: (</span><span class="s0">context</span><span class="s2">) =&gt; </span><span class="s0">FeedbackPage</span><span class="s2">()),</span>
+                <span class="s2">);</span>
+              <span class="s2">}),</span>
+            <span class="s2">],</span>
+          <span class="s2">),</span>
+        <span class="s2">),</span>
+      <span class="s2">),</span>
+    <span class="s2">);</span>
+  <span class="s2">}</span>
+
+  <span class="s0">Widget makeDashboardItem</span><span class="s2">(</span><span class="s0">String title</span><span class="s2">, </span><span class="s0">IconData icon</span><span class="s2">, </span><span class="s0">Function</span><span class="s2">() </span><span class="s0">onTap</span><span class="s2">) {</span>
+    <span class="s4">return </span><span class="s0">InkWell</span><span class="s2">(</span>
+      <span class="s0">onTap</span><span class="s2">: </span><span class="s0">onTap</span><span class="s2">, </span><span class="s3">// Execute the provided onTap function when tapped</span>
+      <span class="s0">child</span><span class="s2">: </span><span class="s0">Column</span><span class="s2">(</span>
+        <span class="s0">crossAxisAlignment</span><span class="s2">: </span><span class="s0">CrossAxisAlignment</span><span class="s2">.</span><span class="s0">start</span><span class="s2">, </span><span class="s3">// Align to the left</span>
+        <span class="s0">children</span><span class="s2">: &lt;</span><span class="s0">Widget</span><span class="s2">&gt;[</span>
+          <span class="s0">Row</span><span class="s2">(</span>
+            <span class="s0">mainAxisAlignment</span><span class="s2">: </span><span class="s0">MainAxisAlignment</span><span class="s2">.</span><span class="s0">start</span><span class="s2">, </span><span class="s3">// Align to the left</span>
+            <span class="s0">children</span><span class="s2">: &lt;</span><span class="s0">Widget</span><span class="s2">&gt;[</span>
+              <span class="s0">Icon</span><span class="s2">(</span>
+                <span class="s0">icon</span><span class="s2">,</span>
+                <span class="s0">size</span><span class="s2">: </span><span class="s5">40.0</span><span class="s2">,</span>
+                <span class="s0">color</span><span class="s2">: </span><span class="s0">Colors</span><span class="s2">.</span><span class="s0">black</span><span class="s2">,</span>
+              <span class="s2">),</span>
+              <span class="s0">SizedBox</span><span class="s2">(</span><span class="s0">width</span><span class="s2">: </span><span class="s5">10.0</span><span class="s2">), </span><span class="s3">// Add spacing between icon and text</span>
+              <span class="s0">Text</span><span class="s2">(</span>
+                <span class="s0">title</span><span class="s2">,</span>
+                <span class="s0">style</span><span class="s2">: </span><span class="s0">TextStyle</span><span class="s2">(</span>
+                  <span class="s0">fontSize</span><span class="s2">: </span><span class="s5">18.0</span><span class="s2">,</span>
+                  <span class="s0">color</span><span class="s2">: </span><span class="s0">Colors</span><span class="s2">.</span><span class="s0">black</span><span class="s2">,</span>
+                  <span class="s0">fontWeight</span><span class="s2">: </span><span class="s0">FontWeight</span><span class="s2">.</span><span class="s0">bold</span><span class="s2">,</span>
+                <span class="s2">),</span>
+              <span class="s2">),</span>
+            <span class="s2">],</span>
+          <span class="s2">),</span>
+        <span class="s2">],</span>
+      <span class="s2">),</span>
+    <span class="s2">);</span>
+  <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s4">class </span><span class="s0">FeedbackPage </span><span class="s4">extends </span><span class="s0">StatelessWidget </span><span class="s2">{</span>
+  <span class="s0">@override</span>
+  <span class="s0">Widget build</span><span class="s2">(</span><span class="s0">BuildContext context</span><span class="s2">) {</span>
+    <span class="s4">return </span><span class="s0">Scaffold</span><span class="s2">(</span>
+      <span class="s0">appBar</span><span class="s2">: </span><span class="s0">AppBar</span><span class="s2">(</span>
+        <span class="s0">title</span><span class="s2">: </span><span class="s0">Text</span><span class="s2">(</span><span class="s1">'Feedback'</span><span class="s2">),</span>
+      <span class="s2">),</span>
+      <span class="s0">body</span><span class="s2">: </span><span class="s0">Center</span><span class="s2">(</span>
+        <span class="s0">child</span><span class="s2">: </span><span class="s0">ElevatedButton</span><span class="s2">(</span>
+          <span class="s0">onPressed</span><span class="s2">: () {</span>
+            <span class="s3">// Logic for submitting feedback</span>
+            <span class="s0">showDialog</span><span class="s2">(</span>
+              <span class="s0">context</span><span class="s2">: </span><span class="s0">context</span><span class="s2">,</span>
+              <span class="s0">builder</span><span class="s2">: (</span><span class="s0">BuildContext context</span><span class="s2">) {</span>
+                <span class="s4">return </span><span class="s0">AlertDialog</span><span class="s2">(</span>
+                  <span class="s0">title</span><span class="s2">: </span><span class="s0">Text</span><span class="s2">(</span><span class="s1">'Feedback Sent'</span><span class="s2">),</span>
+                  <span class="s0">content</span><span class="s2">: </span><span class="s0">Text</span><span class="s2">(</span><span class="s1">'Thank you for your feedback!'</span><span class="s2">),</span>
+                  <span class="s0">actions</span><span class="s2">: [</span>
+                    <span class="s0">TextButton</span><span class="s2">(</span>
+                      <span class="s0">onPressed</span><span class="s2">: () {</span>
+                        <span class="s0">Navigator</span><span class="s2">.</span><span class="s0">pop</span><span class="s2">(</span><span class="s0">context</span><span class="s2">);</span>
+                      <span class="s2">},</span>
+                      <span class="s0">child</span><span class="s2">: </span><span class="s0">Text</span><span class="s2">(</span><span class="s1">'OK'</span><span class="s2">),</span>
+                    <span class="s2">),</span>
+                  <span class="s2">],</span>
+                <span class="s2">);</span>
+              <span class="s2">},</span>
+            <span class="s2">);</span>
+          <span class="s2">},</span>
+          <span class="s0">child</span><span class="s2">: </span><span class="s0">Text</span><span class="s2">(</span><span class="s1">'Submit Feedback'</span><span class="s2">),</span>
+        <span class="s2">),</span>
+      <span class="s2">),</span>
+    <span class="s2">);</span>
+  <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
