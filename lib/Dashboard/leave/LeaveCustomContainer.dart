@@ -1,24 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:login_page/Dashboard/leave/leave_controller.dart';
+import 'package:login_page/models/leave_model.dart';
 
 class LeaveCustomContainer extends StatelessWidget {
-  final String leaveId;
-  final String Reason;
-  final String ApplyDate;
-  final String FromDate;
-  final String ToDate;
-  final String TypeOfLeave;
-  final String Status;
-  final Color customColor;
-  const LeaveCustomContainer(
-      {super.key,
-      required this.customColor,
-      required this.Reason,
-      required this.ApplyDate,
-      required this.FromDate,
-      required this.ToDate,
-      required this.TypeOfLeave,
-      required this.Status,
-      required this.leaveId});
+  final LeaveModel leaveModel; // Added this line
+
+  // final LeaveController leaveController = Get.find();
+  LeaveCustomContainer({
+    super.key, required this.leaveModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +35,15 @@ class LeaveCustomContainer extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("ID: ${leaveId}"),
+                        //ID--------------------------------------------------
+                        Text("${leaveModel.id}"),
                         Text(
-                          "Leave: ${TypeOfLeave}",
+                        //Leave type--------------------------------------------------
+                          "${leaveModel.type}",
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Text("Status: ${Status}"),
+                        // Status--------------------------------
+                        Text("${leaveModel.status}"),
                       ],
                     ),
                     //------------------R-1------------
@@ -59,7 +53,8 @@ class LeaveCustomContainer extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          "Reason: ${Reason} ",
+                          // Reason----------------------------------------
+                          "${leaveModel.reason} ",
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                         ),
@@ -71,18 +66,19 @@ class LeaveCustomContainer extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        // ------------------------DATES-------------------------------
                         Text(
-                          "Applied: ${ApplyDate}",
+                          "${leaveModel.applyDate}",
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),
                         Text(
-                          " from: ${FromDate}",
+                          "${leaveModel.startDate}",
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),
                         Text(
-                          " To: ${ToDate}",
+                          "${leaveModel.endDate}",
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),

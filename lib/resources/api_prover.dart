@@ -1,7 +1,6 @@
-
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:login_page/models/abc.dart';
 import 'package:login_page/models/leave_model.dart';
 import 'package:login_page/models/performance_model.dart';
 import 'package:login_page/models/resource_model.dart';
@@ -9,16 +8,25 @@ import 'package:login_page/models/task_model.dart';
 
 class Api {
   final String apiKey;
-  static const baseUrl = "http://api.themoviedb.org/3/movie/popular?api_key=";
+  final String token;
+  static const baseUrl = "fakestoreapi.com";
   // static const _apiKey = '802b2c4b88ea1183e50e6b285a27696e';
 
-  Api({required this.apiKey});
+  Api(this.token,{required this.apiKey });
 
 // -----------------------------Get Leaves----------------------------------
+  // Future<List<ProductPostModel>> fetchLeavesfromAPI() async {
   Future<List<LeaveModel>> fetchLeavesfromAPI() async {
     try {
-      final url = await Uri.parse("$baseUrl$apiKey");
-      var response = await http.get(url);
+      final url = await Uri.https("$baseUrl","$apiKey");
+      var response = await http.get(
+        url
+        // ,
+        // headers: {
+        //   'Authorization': 'Bearer $token',
+        //   'Content-Type': 'application/json',
+        // },
+      );
 
       if (response.statusCode == 200) {
         print("response is 200");
@@ -26,7 +34,7 @@ class Api {
         List<dynamic> data = json.decode(response.body);
         List<LeaveModel> leaves =
             data.map((json) => LeaveModel.fromJson(json)).toList();
-        return leaves;
+        return leaves;    
       } else {
         // If that call was not successful, throw an error.
         throw Exception('Failed to load leaves');
@@ -106,4 +114,3 @@ class Api {
     }
   }
 }
-

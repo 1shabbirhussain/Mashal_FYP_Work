@@ -5,7 +5,7 @@ import 'package:login_page/resources/api_prover.dart';
 class PerformanceController extends GetxController {
   static String endPoint = "End Point Key";
 
-  Api api = Api(apiKey: endPoint);
+  Api api = Api(apiKey: endPoint,  '');
   RxBool isLoading = true.obs;
   var performanceList = <PerformanceModel>[].obs;
 
